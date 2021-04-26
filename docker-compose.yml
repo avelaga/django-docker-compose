@@ -1,6 +1,14 @@
 version: '3.7'
 
 services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
   django_gunicorn:
     volumes:
       - static:/static
